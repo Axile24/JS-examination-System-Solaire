@@ -1,0 +1,97 @@
+.solar-system {
+  position: relative;
+  margin: 0;
+  background-color: #0d1b2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: radial-gradient(circle at right, #020e1d, #060413, rgb(12, 12, 48), rgb(1, 1, 62), #390339);
+  overflow: hidden;
+}
+
+/*TODO*/
+
+.sun {
+  position: absolute;
+  left: -40%;
+  width: 45%;
+  height: 80%;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  /*FIXME : ANVÄNDA FELX?*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.5rem;
+  font-weight: bold;
+  //* box-shadow: 0 0 50px #ffcc00, 0 0 100px #ff9900; /* Optional glowing effect */
+}
+/*FIXME */
+.planet {
+  border-radius: 50%;
+  margin: 0 30px;
+}
+
+.mercury {
+  background-color: #a6a6a6;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+}
+
+.venus {
+  background-color: #f5e6e6;
+  width: 20px;
+  height: 20px;
+}
+
+.earth {
+  background-color: #4d88ff;
+  width: 35px;
+  height: 35px;
+}
+
+.mars {
+  background-color: #ff6666;
+  width: 15px;
+  height: 15px;
+}
+/*HACK */
+.jupiter {
+  background-color: #ff9966;
+  width: 150px;
+  height: 150px;
+
+}
+
+.saturn {
+  background-color: #ffcc66;
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.saturn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 150px;
+  height: 2px;
+  background-color: #f0e5b9;
+  transform: rotate(-30deg);
+}
+
+.uranus {
+  background-color: #cce6ff;
+  width: 40px;
+  height: 40px;
+}
+
+.neptune {
+  background-color: #809fff;
+  width: 45px;
+  height: 45px;
+}
