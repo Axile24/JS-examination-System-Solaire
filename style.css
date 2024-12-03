@@ -1,101 +1,278 @@
-.solar-system {
-  position: relative;
-  margin: 0;
-  background-color: #0d1b2a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  background: radial-gradient(circle at right, #020e1d, #060413, rgb(12, 12, 48), rgb(1, 1, 62), #390339);
-  overflow: hidden;
-}
+:root {
+ / Planetary colors named in swedish for easy access from api-fetched name -> color variable*/
+  --merkurius: #8c8a84;
+  --venus: #e6cdcc;
+  --jorden: #418ed4;
+  --mars: #ef5f5f;
+  --jupiter: #e29468;
+  --saturnus: #c7aa72;
+  --uranus: #c9d4f1;
+  --neptunus: #7a91a7;
+  --solen: #ffd129;
 
-/*TODO*/
+  --main-aside-width: 7vw;
+  --planet-aside-width: 20vw;
+  --header-height: 7rem;
 
-.sun {
-  position: absolute;
-  left: -40%;
-  width: 45%;
-  height: 80%;
-  background-color: #ffcc00;
-  border-radius: 50%;
-  /*FIXME : ANVÄNDA FELX?*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 1.5rem;
-  font-weight: bold;
-  //* box-shadow: 0 0 50px #ffcc00, 0 0 100px #ff9900; /* Optional glowing effect */
-}
-/*FIXME */
-.planet {
-  border-radius: 50%;
-  margin: 0 30px;
-}
+  --background:
+    radial-gradient(circle at 4% 11%, rgba(255, 255, 255, 0.658) 2px, transparent 4px),
+    radial-gradient(circle at 16% 81%, rgba(255, 255, 255, 0.463) 1px, transparent 3px),
+    radial-gradient(circle at 24% 29%, rgba(255, 244, 196, 0.89) 1.5px, transparent 4px),
+    radial-gradient(circle at 41% 22%, rgba(255, 255, 255, 0.658) 2px, transparent 3px),
+    radial-gradient(circle at 53% 64%, rgba(255, 255, 255, 0.658) 1px, transparent 4px),
+    radial-gradient(circle at 70% 10%, rgba(255, 255, 255, 0.658) 1.5px, transparent 3px),
+    radial-gradient(circle at 85% 50%, rgba(255, 255, 255, 0.658) 2px, transparent 4px),
+    radial-gradient(circle at 95% 25%, rgba(255, 255, 255, 0.658) 1.5px, transparent 3px),
+    radial-gradient(circle at 10% 45%, rgba(255, 255, 255, 0.658) 1px, transparent 4px),
+    radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.658) 2px, transparent 3px),
+    radial-gradient(circle at 35% 85%, rgba(255, 255, 255, 0.658) 1.5px, transparent 4px),
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.658) 2px, transparent 3px),
+    radial-gradient(circle at 65% 75%, rgba(255, 255, 255, 0.658) 1px, transparent 4px),
+    radial-gradient(circle at 75% 35%, rgba(255, 255, 255, 0.658) 2px, transparent 3px),
+    radial-gradient(circle at 90% 15%, rgba(255, 255, 255, 0.658) 2.5px, transparent 4px),
+    radial-gradient(circle at 8% 90%, rgba(255, 255, 255, 0.658) 3.5px, transparent 3px),
+    radial-gradient(circle at 18% 55%, rgba(255, 255, 255, 0.658) 1px, transparent 4px),
+    radial-gradient(circle at 55% 40%, rgba(255, 235, 235, 0.934) 1.5px, transparent 3px),
+    radial-gradient(circle at 78% 65%, rgba(255, 255, 255, 0.658) 2px, transparent 4px),
+    radial-gradient(circle at 92% 5%, rgba(255, 255, 255, 0.658) 2.5px, transparent 3px),
 
-.mercury {
-  background-color: #a6a6a6;
-  width: 10px;
-  height: 10px;
-  margin-left: 5px;
-}
-
-.venus {
-  background-color: #f5e6e6;
-  width: 20px;
-  height: 20px;
-}
-
-.earth {
-  background-color: #4d88ff;
-  width: 35px;
-  height: 35px;
-}
-
-.mars {
-  background-color: #ff6666;
-  width: 15px;
-  height: 15px;
-}
-/*HACK */
-.jupiter {
-  background-color: #ff9966;
-  width: 150px;
-  height: 150px;
+    linear-gradient(to left, rgb(33, 14, 40), rgb(10, 9, 36), rgb(10, 22, 65));
 
 }
 
-.saturn {
-  background-color: #ffcc66;
-  width: 120px;
-  height: 120px;
-  position: relative;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-.saturn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -20px;
-  width: 150px;
-  height: 2px;
-  background-color: #f0e5b9;
-  transform: rotate(-30deg);
-}
+  html {
+    background: var(--background);
+    color: white;
 
-.uranus {
-  background-color: #cce6ff;
-  width: 40px;
-  height: 40px;
-}
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+  }
 
-.neptune {
-  background-color: #809fff;
-  width: 45px;
-  height: 45px;
-}
+  #wrapper {
+    color: white;
+
+    margin: 0;
+    margin-left: var(--main-aside-width);
+    width: calc(100vw - var(--main-aside-width));
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 2rem;
+    gap: 2rem;
+  }
+
+  .mainpage__header {
+    height: var(--header-height);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .mainpage__title,
+  .overlay__title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: "Secular One", Helvetica, sans-serif;
+    letter-spacing: 0.3rem;
+  }
+
+  .mainpage__subtitle,
+  .overlay__subtitle {
+    color: var(--solen);
+    font-family: "Lora", sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 0.7rem;
+
+    margin-bottom: 1rem;
+  }
+
+  .solar-system {
+    flex: 1;
+    margin-bottom: calc(var(--header-height) + 2rem);
+    display: flex;
+    align-items: center;
+    gap: 5%;
+  }
+
+  /*setting color of all the solar system's planets*/
+  .mercury {
+    background-color: var(--merkurius);
+  }
+
+  .venus {
+    background-color: var(--venus);
+  }
+
+  .earth {
+    background-color: var(--jorden);
+  }
+
+  .mars {
+    background-color: var(--mars);
+  }
+
+  .jupiter {
+    background-color: var(--jupiter);
+  }
+
+  .saturn {
+    background-color: var(--saturnus);
+  }
+
+  .uranus {
+    background-color: var(--uranus);
+  }
+
+  .neptune {
+    background-color: var(--neptunus);
+  }
+
+  .saturn {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .saturn__ring {
+    background-color: beige;
+    height: 3%;
+    width: 150%;
+    border-radius: 100%;
+    transform: rotate(-30deg);
+  }
+
+  /*Making all circular objects circular*/
+  .solar-system__planet,
+  .sun-slice,
+  .pl-slice,
+  .pl-slice__layer {
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+  }
 
 
-/* FIXME: mobile layout + BEM? MOBIL ÄR VIKTIG *********/
+  .mainpage__aside,
+  .overlay__aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .mainpage__aside {
+    width: var(--main-aside-width);
+    ;
+  }
+
+  .sun-slice {
+    height: 200vh;
+    background-color: var(--solen);
+  }
+
+
+
+  .overlay {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100vw;
+
+    background: var(--background);
+
+    padding: 5rem calc(3rem + var(--planet-aside-width));
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .overlay__line {
+    height: 2px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.621);
+    border-radius: 1px;
+  }
+
+  .overlay__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .overlay__section-title {
+    font-family: "Secular One", Helvetica, sans-serif;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+  }
+
+  .overlay__stat-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template: 1fr 1fr / auto auto;
+  }
+
+  .overlay__moons-list {
+    padding-left: 1rem;
+
+    list-style: circle;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+  }
+
+  .overlay__aside {
+    width: var(--planet-aside-width);
+  }
+
+  .pl-slice {
+    display: grid;
+    grid-template: 100% / 100%;
+  }
+
+  .pl-slice__layer {
+    grid-area: 1 / 1 / span 1 / span 1;
+    place-self: center;
+  }
+
+  .pl-slice__layer--outer {
+    height: calc(2* 1404vh / 9);
+    opacity: 0.5;
+    z-index: 1001;
+  }
+
+  .pl-slice__layer--middle {
+    height: calc(2* 1340vh / 9);
+    opacity: 0.75;
+    z-index: 1002;
+  }
+
+  .pl-slice__layer--inner {
+    height: calc(2* 1276vh / 9);
+    opacity: 1;
+    z-index: 1003;
+  }
+
+
+
+  .hidden {
+    display: none;
+  }
