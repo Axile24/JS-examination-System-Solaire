@@ -80,13 +80,15 @@ const stringifyBigNumber = (number) => {
 
     return returnString
 }
-
+// tillkals i main sen
 const setPlanetSizes = async() => {
 
-    //Get array of planets by first getting our solar system array (through api request), then removing it's first item (the sun)
     const solarSystem = await getSolarSystem()
-    const planets = solarSystem.slice(1)
+    const planets = solarSystem.slice(1)// skapa en ny array som bärjar fråm index 1 från mercury då
+    /* const solarSystem = ['Sun', 'Mercury', 'Venus', 'Earth', 'Mars']; lisa bara på palnetaer*/ 
 
+     console.log(planets);
+     
     //Looping with variables instead of "for of" since we want to access the same index of 2 different arrays
     for (let i = 0; i < planets.length; i++) {
 

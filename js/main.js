@@ -8,7 +8,7 @@ import {displayPlanetData, hideOverlay, setPlanetSizes} from "./domManipulation.
 
 setPlanetSizes()
 
-
+// när man cklickr på en planet fås informatione
 for (const planet of planetFigures) {
     planet.addEventListener('click', async() => {
 
