@@ -194,8 +194,6 @@ html {
   background-color: var(--solen);
 }
 
-
-
 .overlay {
   position: absolute;
   z-index: 1000;
@@ -283,4 +281,96 @@ html {
 
 .hidden {
   display: none;
+}
+
+
+
+/*RESPONSIV?*/
+
+@media (max-width: 768px) {
+
+  /* För mindre skärmar som mobiler */
+  :root {
+    --main-aside-width: 15vw;
+    /* Större bredd på sidopanelen för mobiler */
+    --planet-aside-width: 15vw;
+    /* Justera bredden på planet-paneler */
+    --header-height: 5rem;
+    /* Minska höjden på headern */
+  }
+
+  #wrapper {
+    margin-left: 0;
+    /* Ta bort marginalen för mindre skärmar */
+    width: 100vw;
+    /* Full bredd på skärmen */
+  }
+
+  .solar-system {
+    gap: 4%;
+    /* Minska gapet mellan planeter */
+    flex-direction: row;
+    /* Visa planeterna vertikalt istället för horisontellt */
+  }
+
+  .mainpage__header {
+    align-items: center;
+    /* Centrera headerinnehållet */
+  }
+
+  .overlay {
+    padding: 2rem calc(2rem + var(--planet-aside-width));
+    /* Justera padding för mindre skärmar */
+  }
+
+  .sun-slice {
+    height: 150vh;
+    /* Minska storleken på solbiten */
+  }
+
+  .overlay__moons-list {
+    grid-template-columns: 1fr;
+    /* Visa månlistan vertikalt istället för i rader */
+  }
+
+  /* För små enheter, minska storleken på texten */
+  .mainpage__title,
+  .overlay__title {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .mainpage__subtitle,
+  .overlay__subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* För ännu mindre skärmar */
+  :root {
+    --main-aside-width: 20vw;
+    /* Större sidopaneler */
+    --planet-aside-width: 10vw;
+    /* Ännu smalare planet-paneler */
+    --header-height: 4rem;
+  }
+
+  .solar-system {
+    gap: 6%;
+    /* Minska gapet ännu mer */
+    flex-direction: row;
+    /* Vertikal layout */
+  }
+
+  .sun-slice {
+    height: 90vh;
+    /* Minska storleken ytterligare */
+  }
+
+  .overlay__line {
+    height: 1px;
+    /* Minska linjens höjd */
+  }
 }
