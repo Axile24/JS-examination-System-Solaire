@@ -61,6 +61,7 @@ html {
   font-weight: 200;
 }
 
+/*FIXME: */
 #wrapper {
   color: white;
   margin: 0;
@@ -104,7 +105,7 @@ html {
   gap: 5%;
 }
 
-/*setting color of all the solar system's planets*/
+/*TODO:setting color of all the solar system's planets*/
 .mercury {
   background-color: var(--merkurius);
 }

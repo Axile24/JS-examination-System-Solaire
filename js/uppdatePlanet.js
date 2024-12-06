@@ -1,7 +1,7 @@
 //Module containing all code that changes the DOM || Modul med all kod som ändrar i DOM-trädet
 
 import {getSolarSystem } from "./apiRequests.js"
-import { overlay, planetFigures, planetSlices } from "./domElements.js"
+import { overlay, planetFigures, planetSlices } from "./ElementSet.js"
 
 
 const displayPlanetData = (planetData) => {    

@@ -1,8 +1,8 @@
 //Main js module
 
 import {getPlanet} from "./apiRequests.js"
-import {overlay, planetFigures, sunSlice} from "./domElements.js";
-import {displayPlanetData, hideOverlay, setPlanetSizes} from "./domManipulation.js";
+import {overlay, planetFigures, sunSlice} from "./ElementSet.js";
+import {displayPlanetData, hideOverlay, setPlanetSizes} from "./uppdatePlanet.js";
 
 
 
