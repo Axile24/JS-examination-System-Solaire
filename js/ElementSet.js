@@ -5,15 +5,15 @@ const sunSlice = document.querySelector('.sun-slice')
 
 //
 const overlay = {
-    modal: document.querySelector('.overlay'),
-    title: document.querySelector('.overlay__title'),
-    subTitle: document.querySelector('.overlay__subtitle'),
-    description: document.querySelector('.overlay__pl-desc'),
-    circumference: document.querySelector('.overlay__pl-circ'),
-    distance: document.querySelector('.overlay__pl-dist'),
-    maxTemp: document.querySelector('.overlay__pl-max-temp'),
-    minTemp: document.querySelector('.overlay__pl-min-temp'),
-    moonList: document.querySelector('.overlay__moons-list')        
+    modal: document.querySelector('.layer'),
+    title: document.querySelector('.layer__title'),
+    subTitle: document.querySelector('.layer__subtitle'),
+    description: document.querySelector('.layer__pl-desc'),
+    circumference: document.querySelector('.layer__pl-circ'),
+    distance: document.querySelector('.layer__pl-dist'),
+    maxTemp: document.querySelector('.layer__pl-max-temp'),
+    minTemp: document.querySelector('.layer__pl-min-temp'),
+    moonList: document.querySelector('.layer__moons-list')        
 }
 
 const planetSlices = {
